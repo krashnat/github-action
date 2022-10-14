@@ -1,0 +1,14 @@
+name: create a comment on new issues
+
+on:
+  issues:
+    types:[opened]
+    
+ 
+ job:
+    comment-with-action:
+      runs-on: ubuntu-latest
+      steps:
+        - name:"dump github contest"
+         run: echo '${{toJSON(github.event) }}' | jq
+         shell:bash
